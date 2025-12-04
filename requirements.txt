@@ -1,0 +1,101 @@
+# Core Framework
+langgraph==0.2.16
+langchain==0.1.20
+langchain-core==0.1.52
+langchain-openai==0.1.6
+langchain-anthropic==0.1.11
+
+# API & Web Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.6.0
+pydantic-settings==2.1.0
+python-multipart==0.0.6
+
+# UI Framework
+streamlit==1.31.0
+gradio==4.16.0
+plotly==5.18.0
+matplotlib==3.8.2
+seaborn==0.13.1
+
+# ML & Fraud Detection
+scikit-learn==1.4.0
+pyod==1.1.3
+xgboost==2.0.3
+lightgbm==4.3.0
+imbalanced-learn==0.12.0
+tensorflow==2.15.0
+torch==2.1.2
+
+# Document Processing & OCR
+pytesseract==0.3.10
+pdf2image==1.17.0
+opencv-python==4.9.0.80
+pillow==10.2.0
+pdfplumber==0.10.4
+doctr==0.7.0
+
+# Vector Database & RAG
+pinecone-client==3.0.2
+chromadb==0.4.22
+sentence-transformers==2.3.1
+faiss-cpu==1.7.4
+tiktoken==0.5.2
+
+# Data Processing
+pandas==2.2.0
+numpy==1.26.3
+openpyxl==3.1.2
+sqlalchemy==2.0.25
+alembic==1.13.1
+
+# API Clients
+requests==2.31.0
+httpx==0.26.0
+aiohttp==3.9.3
+boto3==1.34.34
+
+# Monitoring & Logging
+prometheus-client==0.19.0
+opentelemetry-api==1.22.0
+opentelemetry-sdk==1.22.0
+python-json-logger==2.0.7
+structlog==24.1.0
+
+# Testing
+pytest==8.0.0
+pytest-asyncio==0.23.3
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+faker==22.6.0
+httpx-mock==0.7.0
+
+# Utilities
+python-dotenv==1.0.1
+pyyaml==6.0.1
+click==8.1.7
+tqdm==4.66.1
+redis==5.0.1
+celery==5.3.6
+
+# Security & Validation
+cryptography==42.0.2
+jwt==1.3.1
+passlib==1.7.4
+bcrypt==4.1.2
+
+# Date & Time
+python-dateutil==2.8.2
+pytz==2024.1
+
+# Development Tools
+black==24.1.1
+flake8==7.0.0
+mypy==1.8.0
+isort==5.13.2
+pre-commit==3.6.0
+
+# Documentation
+mkdocs==1.5.3
+mkdocs-material==9.5.6

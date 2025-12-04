@@ -1,0 +1,10 @@
+{
+  "transaction_id": "TXN-DEMO-001",
+  "amount": 15000.00,
+  "merchant": "Tech Store Inc",
+  "category": "IT Services",
+  "user_id": "EMP-001",
+  "timestamp": "2025-12-04T10:30:00Z",
+  "location": "New York, NY",
+  "description": "Equipment purchase"
+}

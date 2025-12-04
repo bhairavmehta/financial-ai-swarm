@@ -1,0 +1,179 @@
+# Financial AI Swarm Configuration
+
+application:
+  name: "Financial AI Swarm"
+  version: "1.0.0"
+  environment: "development"
+
+orchestration:
+  supervisor_model: "gpt-4-turbo-preview"
+  max_iterations: 10
+  timeout_seconds: 300
+  retry_attempts: 3
+  
+agents:
+  fraud_detection:
+    enabled: true
+    priority: 1
+    models:
+      - isolation_forest
+      - lof
+      - knn
+      - cblof
+      - hbos
+    thresholds:
+      low: 0.3
+      medium: 0.5
+      high: 0.7
+      critical: 0.85
+    weights:
+      isolation_forest: 0.3
+      lof: 0.25
+      knn: 0.2
+      cblof: 0.15
+      hbos: 0.1
+  
+  compliance:
+    enabled: true
+    priority: 2
+    sanctions_lists:
+      - OFAC_SDN
+      - UN_SANCTIONS
+      - EU_SANCTIONS
+    pep_screening: true
+    policy_rag:
+      enabled: true
+      top_k_policies: 3
+      embedding_model: "all-MiniLM-L6-v2"
+      similarity_threshold: 0.7
+  
+  document_processing:
+    enabled: true
+    priority: 3
+    supported_formats:
+      - jpg
+      - jpeg
+      - png
+      - pdf
+      - tiff
+    ocr:
+      engine: "tesseract"
+      language: "eng"
+      psm_mode: 6
+    confidence_threshold: 0.5
+  
+  spend_analysis:
+    enabled: true
+    priority: 4
+    budgets:
+      travel: 50000
+      entertainment: 10000
+      it_services: 100000
+      consulting: 75000
+      supplies: 20000
+      training: 15000
+      other: 25000
+    anomaly_detection:
+      z_score_threshold: 2.5
+      velocity_threshold: 10
+  
+  vendor_analysis:
+    enabled: true
+    priority: 5
+    duplicate_threshold: 0.9
+    risk_scoring:
+      payment_history_weight: 0.4
+      volume_weight: 0.3
+      compliance_weight: 0.3
+  
+  explanation:
+    enabled: true
+    priority: 6
+    model: "gpt-4-turbo-preview"
+    max_tokens: 500
+    include_reasoning: true
+  
+  learning:
+    enabled: true
+    priority: 7
+    feedback_collection: true
+    model_retraining:
+      enabled: false
+      schedule: "weekly"
+      min_samples: 1000
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  cors:
+    enabled: true
+    origins: ["*"]
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 100
+  authentication:
+    enabled: false
+    type: "api_key"
+
+database:
+  type: "postgresql"
+  pool_size: 10
+  max_overflow: 20
+  pool_timeout: 30
+
+cache:
+  type: "redis"
+  ttl: 3600
+  max_connections: 50
+
+logging:
+  level: "INFO"
+  format: "json"
+  handlers:
+    - console
+    - file
+  file:
+    path: "logs/app.log"
+    rotation: "daily"
+    retention: "7 days"
+
+monitoring:
+  prometheus:
+    enabled: true
+    port: 9090
+  tracing:
+    enabled: false
+    jaeger_host: "localhost"
+    jaeger_port: 6831
+  metrics:
+    - transaction_count
+    - fraud_detection_latency
+    - compliance_check_latency
+    - api_response_time
+
+security:
+  encryption:
+    enabled: true
+    algorithm: "AES-256"
+  pii_redaction:
+    enabled: true
+    fields:
+      - credit_card
+      - ssn
+      - password
+  audit_logging:
+    enabled: true
+    retention_days: 90
+
+features:
+  batch_processing: true
+  async_processing: true
+  webhook_notifications: true
+  email_alerts: true
+  dashboard: true
+
+demo:
+  mock_data: true
+  sample_transactions: 100
+  enable_test_endpoints: true
